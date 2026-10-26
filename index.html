@@ -3,393 +3,119 @@
 <html lang="pt-BR">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta name="theme-color" content="#10291f">
 <title>Safari do Ravi Noah • Cabine de recordações</title>
-
 <style>
-:root {
-  color-scheme: dark;
-  --bg: #0b211a;
-  --cream: #fff5e2;
-  --gold: #dfba75;
-  --muted: #d8d0bb;
-}
-
-* { box-sizing: border-box; }
-
-html {
-  scroll-behavior: smooth;
-  overflow-x: hidden;
-}
-
-body {
-  margin: 0;
-  min-height: 100vh;
-  overflow-x: hidden;
-  background: radial-gradient(ellipse at 50% 0%, #30503a 0%, #102c21 37%, var(--bg) 85%);
-  color: var(--cream);
-  font-family: system-ui, 'Trebuchet MS', sans-serif;
-  text-align: center;
-}
-
-body::before {
-  content: "";
-  position: fixed;
-  inset: 0;
-  pointer-events: none;
-  opacity: .12;
-  background-image: radial-gradient(#ebd7a5 .6px, transparent .7px);
-  background-size: 18px 18px;
-}
-
-main {
-  position: relative;
-  max-width: 960px;
-  margin: auto;
-  padding: 26px 14px 50px;
-}
-
-.eyebrow {
-  display: inline-block;
-  border: 1px solid #aa8d5680;
-  border-radius: 100px;
-  padding: 9px 17px;
-  color: #f0d59b;
-  letter-spacing: .15em;
-  text-transform: uppercase;
-  font-size: 11px;
-  font-weight: 750;
-}
-
-.hero { padding: 12px 0 23px; }
-
-.hero h1 {
-  font-family: Georgia, serif;
-  font-size: clamp(34px, 7vw, 56px);
-  font-weight: 500;
-  letter-spacing: -.03em;
-  margin: 18px 0 8px;
-}
-
-.hero p {
-  font-size: clamp(14px, 2.7vw, 17px);
-  line-height: 1.65;
-  color: var(--muted);
-  max-width: 610px;
-  margin: 10px auto;
-}
-
-.ornament {
-  color: var(--gold);
-  font-size: 19px;
-  letter-spacing: .5em;
-  margin: 12px auto;
-}
-
-.studio {
-  padding: clamp(12px, 2.6vw, 23px);
-  border: 1px solid #b89c6555;
-  border-radius: 28px;
-  background: linear-gradient(145deg, #1c3b2b, #10271e);
-  box-shadow: 0 22px 70px #03110b88;
-}
-
-.section-kicker {
-  font-size: 11px;
-  text-transform: uppercase;
-  letter-spacing: .22em;
-  color: #e1bf83;
-  margin: 2px 0 13px;
-}
-
-/* Moldura e área de fotografia */
-.stage {
-  position: relative;
-  aspect-ratio: 2 / 3;
-  width: 100%;
-  max-width: 350px;
-  margin: auto;
-  border-radius: 15px;
-  overflow: hidden;
-  background: #132d22;
-  box-shadow: 0 12px 30px #06150e9a;
-  touch-action: pan-y;
-}
-
-.media-zone {
-  position: absolute;
-  left: 12.0117%;
-  top: 13.0208%;
-  width: 75.9766%;
-  height: 63.0208%;
-  overflow: hidden;
-  background: #23392d;
-}
-
-.media-zone video,
-.media-zone img {
-  display: none;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: center;
-}
-
-.media-zone video {
-  transform: none;
-}
-
-.stage .frame {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  pointer-events: none;
-}
-
-.placeholder {
-  position: absolute;
-  inset: 0;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 9px;
-  padding: 18%;
-  color: #f4e0b3;
-  font-size: clamp(13px, 3vw, 21px);
-  line-height: 1.5;
-}
-
-.placeholder .camicon { font-size: 35px; }
-.stage.has-media .placeholder { display: none; }
-
-.actions {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 10px;
-  max-width: 660px;
-  margin: 21px auto 13px;
-}
-
-button, .button {
-  appearance: none;
-  border: 1px solid #f0d79b;
-  background: linear-gradient(135deg, #f0d79b, #cda45c);
-  color: #173124;
-  font: 700 14px system-ui, sans-serif;
-  border-radius: 13px;
-  padding: 15px 12px;
-  cursor: pointer;
-  min-height: 50px;
-  box-shadow: 0 3px 0 #0003;
-  text-decoration: none;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 6px;
-}
-
-.secondary {
-  background: #264737;
-  color: #fff0d3;
-  border-color: #7d956d;
-}
-
-button:disabled {
-  opacity: .5;
-  cursor: not-allowed;
-}
-
-.hint {
-  color: var(--muted);
-  font-size: 13px;
-  line-height: 1.6;
-  margin: 9px auto 15px;
-}
-
-.edit {
-  display: none;
-  max-width: 520px;
-  margin: 15px auto;
-  padding: 18px;
-  border: 1px solid #7a865e;
-  border-radius: 17px;
-  background: #1a392a;
-}
-
-.edit label {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  font-size: 13px;
-}
-
-.edit input {
-  flex: 1;
-  min-width: 0;
-  accent-color: var(--gold);
-}
-
-.result {
-  display: none;
-  margin: 25px auto 0;
-  border-top: 1px solid #ffffff22;
-  padding-top: 20px;
-}
-
-.result h2 {
-  font: normal 26px Georgia, serif;
-  color: #f2d49b;
-}
-
-.result img {
-  width: 100%;
-  max-width: 520px;
-  border-radius: 14px;
-  display: block;
-  margin: 12px auto 20px;
-}
-
-.message {
-  margin: 32px auto 10px;
-  max-width: 520px;
-  padding: 29px 24px;
-  border: 1px solid #a88e5566;
-  border-radius: 22px;
-  background: linear-gradient(145deg, #29463299, #132a2099);
-}
-
-.message h2 {
-  font: normal clamp(24px, 5vw, 32px) Georgia, serif;
-  margin: 0 0 13px;
-  color: #f4dba6;
-}
-
-.message p {
-  line-height: 1.75;
-  margin: 0 auto;
-  color: #f2e6d2;
-  font-size: 15px;
-}
-
-.signature {
-  color: #f1cf8c;
-  font: italic 18px Georgia, serif;
-  margin-top: 17px;
-}
-
-.tiny {
-  font-size: 12px;
-  color: #c6c5b2;
-  margin-top: 22px;
-  line-height: 1.5;
-}
-
-#file { display: none; }
-
-#status {
-  min-height: 20px;
-  color: #f1d9a4;
-  font-size: 13px;
-  margin-top: 12px;
-  line-height: 1.5;
-}
-
-.howto {
-  font-size: 13px;
-  color: #e5dac4;
-  margin: 8px 0 0;
-}
-
-.howto strong { color: #f4d79c; }
-
-@media(max-width:440px) {
-  main { padding: 14px 10px 34px; }
-  .studio { padding: 10px; border-radius: 20px; }
-  .actions { gap: 8px; margin-top: 14px; }
-  button, .button {
-    padding: 12px 7px;
-    font-size: 12px;
-    min-height: 52px;
-  }
-  .message { padding: 24px 16px; }
-  .hero { padding-bottom: 12px; }
-  .hero h1 { font-size: clamp(28px, 7vw, 38px); }
-  .stage { max-width: min(100%, 330px); }
+:root{color-scheme:dark;--bg:#0b211a;--cream:#fff5e2;--gold:#dfba75;--muted:#d8d0bb}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;overflow-x:hidden}
+body{margin:0;min-height:100vh;overflow-x:hidden;background:radial-gradient(ellipse at 50% 0%,#30503a 0%,#102c21 37%,var(--bg) 85%);color:var(--cream);font-family:system-ui,'Trebuchet MS',sans-serif;text-align:center}
+body:before{content:'';position:fixed;inset:0;pointer-events:none;opacity:.12;background-image:radial-gradient(#ebd7a5 .6px,transparent .7px);background-size:18px 18px}
+main{position:relative;max-width:960px;margin:auto;padding:26px 14px 50px}
+.eyebrow{display:inline-block;border:1px solid #aa8d5680;border-radius:100px;padding:9px 17px;color:#f0d59b;letter-spacing:.15em;text-transform:uppercase;font-size:11px;font-weight:750}
+.hero{padding:12px 0 23px}
+.hero h1{font-family:Georgia,serif;font-size:clamp(34px,7vw,56px);font-weight:500;letter-spacing:-.03em;margin:18px 0 8px}
+.hero p{font-size:clamp(14px,2.7vw,17px);line-height:1.65;color:var(--muted);max-width:610px;margin:10px auto}
+.ornament{color:var(--gold);font-size:19px;letter-spacing:.5em;margin:12px auto}
+.studio{padding:clamp(12px,2.6vw,23px);border:1px solid #b89c6555;border-radius:28px;background:linear-gradient(145deg,#1c3b2b,#10271e);box-shadow:0 22px 70px #03110b88}
+.section-kicker{font-size:11px;text-transform:uppercase;letter-spacing:.22em;color:#e1bf83;margin:2px 0 13px}
+.stage{position:relative;aspect-ratio:2/3;width:100%;max-width:350px;margin:auto;border-radius:15px;overflow:hidden;background:#132d22;box-shadow:0 12px 30px #06150e9a;touch-action:pan-y}
+.media-zone{position:absolute;left:12.0117%;top:13.0208%;width:75.9766%;height:63.0208%;overflow:hidden;background:#23392d}
+.media-zone video,.media-zone img{display:none;width:100%;height:100%;object-fit:cover;object-position:center}
+.media-zone video{transform:none}
+.stage .frame{position:absolute;inset:0;width:100%;height:100%;pointer-events:none}
+.placeholder{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:9px;padding:18%;color:#f4e0b3;font-size:clamp(13px,3vw,21px);line-height:1.5}
+.placeholder .camicon{font-size:35px}
+.stage.has-media .placeholder{display:none}
+.actions{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;max-width:660px;margin:21px auto 13px}
+button,.button{appearance:none;border:1px solid #f0d79b;background:linear-gradient(135deg,#f0d79b,#cda45c);color:#173124;font:700 14px system-ui,sans-serif;border-radius:13px;padding:15px 12px;cursor:pointer;min-height:50px;box-shadow:0 3px 0 #0003;text-decoration:none;display:inline-flex;align-items:center;justify-content:center;gap:6px}
+.secondary{background:#264737;color:#fff0d3;border-color:#7d956d}
+button:disabled{opacity:.5;cursor:not-allowed}
+.hint{color:var(--muted);font-size:13px;line-height:1.6;margin:9px auto 15px}
+.edit{display:none;max-width:520px;margin:15px auto;padding:18px;border:1px solid #7a865e;border-radius:17px;background:#1a392a}
+.edit label{display:flex;align-items:center;gap:12px;font-size:13px}
+.edit input{flex:1;min-width:0;accent-color:var(--gold)}
+.result{display:none;margin:25px auto 0;border-top:1px solid #ffffff22;padding-top:20px}
+.result h2{font:normal 26px Georgia,serif;color:#f2d49b}
+.result img{width:100%;max-width:520px;border-radius:14px;display:block;margin:12px auto 20px}
+.message{margin:32px auto 10px;max-width:520px;padding:29px 24px;border:1px solid #a88e5566;border-radius:22px;background:linear-gradient(145deg,#29463299,#132a2099)}
+.message h2{font:normal clamp(24px,5vw,32px) Georgia,serif;margin:0 0 13px;color:#f4dba6}
+.message p{line-height:1.75;margin:0 auto;color:#f2e6d2;font-size:15px}
+.signature{color:#f1cf8c;font:italic 18px Georgia,serif;margin-top:17px}
+.tiny{font-size:12px;color:#c6c5b2;margin-top:22px;line-height:1.5}
+#file{display:none}
+#status{min-height:20px;color:#f1d9a4;font-size:13px;margin-top:12px;line-height:1.5}
+.howto{font-size:13px;color:#e5dac4;margin:8px 0 0}
+.howto strong{color:#f4d79c}
+@media(max-width:440px){
+main{padding:14px 10px 34px}
+.studio{padding:10px;border-radius:20px}
+.actions{gap:8px;margin-top:14px}
+button,.button{padding:12px 7px;font-size:12px;min-height:52px}
+.message{padding:24px 16px}
+.hero{padding-bottom:12px}
+.hero h1{font-size:clamp(28px,7vw,38px)}
+.stage{max-width:min(100%,330px)}
 }
 </style>
 </head>
-
 <body>
 <main>
 <header class="hero">
-  <div class="eyebrow">✦ Uma lembrança especial ✦</div>
-  <h1>Safari do Ravi Noah</h1>
-  <div class="ornament">✦ ♛ ✦</div>
-  <p>Um aninho de descobertas, sorrisos e muito amor! Que alegria ter você celebrando esse dia tão especial conosco. 💛</p>
+<div class="eyebrow">✦ Uma lembrança especial ✦</div>
+<h1>Safari do Ravi Noah</h1>
+<div class="ornament">✦ ♛ ✦</div>
+<p>Um aninho de descobertas, sorrisos e muito amor! Que alegria ter você celebrando esse dia tão especial conosco. 💛</p>
 </header>
 
 <section class="studio" aria-label="Cabine de fotos">
-  <div class="section-kicker">Cabine de recordações • Retrato vertical</div>
+<div class="section-kicker">Cabine de recordações • Retrato vertical</div>
 
-  <div class="stage" id="stage">
-    <div class="placeholder">
-      <span class="camicon">📸</span>
-      <div>Sua aventura merece uma lembrança especial!</div>
-    </div>
+<div class="stage" id="stage">
+<div class="placeholder">
+<span class="camicon">📸</span>
+<div>Sua aventura merece uma lembrança especial!</div>
+</div>
+<div class="media-zone" id="mediaZone">
+<video id="video" autoplay muted playsinline></video>
+<img id="uploaded" alt="Foto escolhida do celular">
+</div>
+<img id="frame" class="frame" src="moldura_safari_ravi.png" alt="Moldura decorativa Safari do Ravi Noah">
+</div>
 
-    <div class="media-zone" id="mediaZone">
-      <video id="video" autoplay muted playsinline></video>
-      <img id="uploaded" alt="Foto escolhida do celular">
-    </div>
+<div class="actions">
+<button type="button" id="open">📷 Abrir câmera</button>
+<button type="button" class="secondary" id="switch">🔄 Trocar câmera</button>
+<button type="button" id="snap">✨ Tirar foto</button>
+<button type="button" class="secondary" id="gallery">🖼️ Escolher da galeria</button>
+<input id="file" type="file" accept="image/*">
+</div>
 
-    <img id="frame" class="frame"
-         src="moldura_safari_ravi.png"
-         alt="Moldura decorativa Safari do Ravi Noah">
-  </div>
+<p class="howto">Fotografe na vertical ou escolha uma imagem da galeria e <strong>guarde essa aventura!</strong></p>
 
-  <div class="actions">
-    <button type="button" id="open">📷 Abrir câmera</button>
-    <button type="button" class="secondary" id="switch">🔄 Trocar câmera</button>
-    <button type="button" id="snap">✨ Tirar foto</button>
-    <button type="button" class="secondary" id="gallery">🖼️ Escolher da galeria</button>
-    <input id="file" type="file" accept="image/*">
-  </div>
+<div id="edit" class="edit">
+<label>Enquadramento
+<input type="range" id="zoom" min="1" max="2.5" value="1" step=".01">
+</label>
+<div class="hint">Arraste a foto para posicionar as pessoas. Ajuste o tamanho, se desejar.</div>
+<button type="button" id="apply">✨ Aplicar moldura</button>
+</div>
 
-  <p class="howto">
-    Fotografe na vertical ou escolha uma imagem da galeria e
-    <strong>guarde essa aventura!</strong>
-  </p>
+<div id="status" role="status" aria-live="polite">Escolha como deseja registrar esse momento. 💚</div>
 
-  <div id="edit" class="edit">
-    <label>
-      Enquadramento
-      <input type="range" id="zoom" min="1" max="2.5" value="1" step=".01">
-    </label>
-    <div class="hint">Arraste a foto para posicionar as pessoas. Ajuste o tamanho, se desejar.</div>
-    <button type="button" id="apply">✨ Aplicar moldura</button>
-  </div>
-
-  <div id="status" role="status" aria-live="polite">
-    Escolha como deseja registrar esse momento. 💚
-  </div>
-
-  <div class="result" id="result">
-    <h2>Sua lembrança ficou pronta! ✨</h2>
-    <img id="preview" alt="Fotografia com moldura do Safari do Ravi Noah">
-    <a id="save" class="button" download="lembranca-safari-ravi-noah.png">
-      ⬇️ Salvar minha foto
-    </a>
-  </div>
+<div class="result" id="result">
+<h2>Sua lembrança ficou pronta! ✨</h2>
+<img id="preview" alt="Fotografia com moldura do Safari do Ravi Noah">
+<a id="save" class="button" download="lembranca-safari-ravi-noah.png">⬇️ Salvar minha foto</a>
+</div>
 </section>
 
 <section class="message">
-  <div class="ornament">✦ ♛ ✦</div>
-  <h2>Que bom que você veio! 💛</h2>
-  <p>Obrigado por fazer parte do meu primeiro aninho! Cada abraço, cada sorriso e cada fotografia tornam esta aventura ainda mais inesquecível. Registre esse momento com carinho e leve um pedacinho dessa alegria com você.</p>
-  <div class="signature">Com amor, Ravi Noah e família ♡</div>
+<div class="ornament">✦ ♛ ✦</div>
+<h2>Que bom que você veio! 💛</h2>
+<p>Obrigado por fazer parte do meu primeiro aninho! Cada abraço, cada sorriso e cada fotografia tornam esta aventura ainda mais inesquecível. Registre esse momento com carinho e leve um pedacinho dessa alegria com você.</p>
+<div class="signature">Com amor, Ravi Noah e família ♡</div>
 </section>
 
 <p class="tiny">🔒 Sua lembrança é criada no próprio celular. As fotos não são enviadas automaticamente.</p>
@@ -398,350 +124,299 @@ button:disabled {
 <script>
 'use strict';
 
-const $ = selector => document.querySelector(selector);
+const $=s=>document.querySelector(s);
+const video=$('#video'),stage=$('#stage'),mediaZone=$('#mediaZone'),uploaded=$('#uploaded'),fileInput=$('#file'),frame=$('#frame'),edit=$('#edit'),zoom=$('#zoom'),statusEl=$('#status'),result=$('#result'),preview=$('#preview'),save=$('#save');
 
-const video = $('#video');
-const stage = $('#stage');
-const mediaZone = $('#mediaZone');
-const uploaded = $('#uploaded');
-const fileInput = $('#file');
-const frame = $('#frame');
-const edit = $('#edit');
-const zoom = $('#zoom');
-const statusEl = $('#status');
-const result = $('#result');
-const preview = $('#preview');
-const save = $('#save');
+const W=1024,H=1536,ZONE={x:123,y:200,w:778,h:968};
 
-const W = 1024;
-const H = 1536;
-const ZONE = { x: 123, y: 200, w: 778, h: 968 };
+let stream=null,facing='user',mode='',photo=null,panX=0,panY=0,scale=1,drag=null,lastResult=null,cameraRequest=0;
 
-let stream = null;
-let facing = 'user';
-let mode = '';
-let photo = null;
-let panX = 0;
-let panY = 0;
-let scale = 1;
-let drag = null;
-let lastResult = null;
-let cameraRequest = 0;
+function tell(message){statusEl.textContent=message}
+function resetResult(){result.style.display='none'}
 
-function tell(message) {
-  statusEl.textContent = message;
+function stopCamera(){
+if(stream){stream.getTracks().forEach(t=>t.stop());stream=null}
+video.pause();
+video.srcObject=null;
 }
 
-function resetResult() {
-  result.style.display = 'none';
+function showMode(next){
+mode=next;
+video.style.display=next==='camera'?'block':'none';
+uploaded.style.display=next==='gallery'?'block':'none';
+edit.style.display=next==='gallery'?'block':'none';
+stage.classList.toggle('has-media',!!next);
+resetResult();
 }
 
-function stopCamera() {
-  if (stream) {
-    stream.getTracks().forEach(track => track.stop());
-    stream = null;
-  }
-  video.pause();
-  video.srcObject = null;
+async function openCamera(){
+const id=++cameraRequest;
+tell('Abrindo câmera... 📸');
+stopCamera();
+
+try{
+if(!window.isSecureContext)throw Error('HTTPS_REQUIRED');
+if(!navigator.mediaDevices?.getUserMedia)throw Error('UNSUPPORTED');
+
+// Solicitar campo de visão mais amplo, sem impor formato 9:16.
+const options={
+audio:false,
+video:{
+facingMode:{ideal:facing},
+width:{ideal:1280},
+height:{ideal:960},
+aspectRatio:{ideal:4/3},
+resizeMode:{ideal:'none'}
+}
+};
+
+let acquired;
+
+try{
+acquired=await navigator.mediaDevices.getUserMedia(options);
+}catch(first){
+if(!['OverconstrainedError','NotFoundError','TypeError'].includes(first.name))throw first;
+acquired=await navigator.mediaDevices.getUserMedia({
+audio:false,
+video:{facingMode:{ideal:facing}}
+});
 }
 
-function showMode(nextMode) {
-  mode = nextMode;
-  video.style.display = nextMode === 'camera' ? 'block' : 'none';
-  uploaded.style.display = nextMode === 'gallery' ? 'block' : 'none';
-  edit.style.display = nextMode === 'gallery' ? 'block' : 'none';
-  stage.classList.toggle('has-media', !!nextMode);
-  resetResult();
+if(id!==cameraRequest){
+acquired.getTracks().forEach(t=>t.stop());
+return;
 }
 
-async function openCamera() {
-  const requestId = ++cameraRequest;
-  tell('Abrindo câmera... 📸');
-  stopCamera();
+stream=acquired;
+const track=stream.getVideoTracks()[0];
 
-  try {
-    if (!window.isSecureContext) {
-      throw new Error('HTTPS_REQUIRED');
-    }
-
-    if (!navigator.mediaDevices?.getUserMedia) {
-      throw new Error('UNSUPPORTED');
-    }
-
-    let newStream;
-
-    try {
-      newStream = await navigator.mediaDevices.getUserMedia({
-        audio: false,
-        video: {
-          facingMode: { ideal: facing },
-          width: { ideal: 720 },
-          height: { ideal: 1280 },
-          aspectRatio: { ideal: 9 / 16 }
-        }
-      });
-    } catch (firstError) {
-      if (!['OverconstrainedError', 'NotFoundError'].includes(firstError.name)) {
-        throw firstError;
-      }
-      newStream = await navigator.mediaDevices.getUserMedia({
-        audio: false,
-        video: true
-      });
-    }
-
-    if (requestId !== cameraRequest) {
-      newStream.getTracks().forEach(track => track.stop());
-      return;
-    }
-
-    stream = newStream;
-    video.srcObject = stream;
-    video.muted = true;
-    video.playsInline = true;
-
-    showMode('camera');
-    await video.play();
-
-    if (requestId !== cameraRequest) return;
-
-    tell('Câmera pronta! 💚 Posicione seu celular na vertical.');
-  } catch (error) {
-    if (requestId !== cameraRequest) return;
-
-    console.error('Erro da câmera:', error);
-    stopCamera();
-    showMode('');
-
-    if (error.message === 'HTTPS_REQUIRED') {
-      tell('Abra a página por HTTPS para usar a câmera.');
-    } else if (error.name === 'NotAllowedError') {
-      tell('Autorize o acesso à câmera nas configurações do Chrome.');
-    } else if (error.name === 'NotReadableError') {
-      tell('A câmera está ocupada. Feche outros aplicativos que estejam usando a câmera.');
-    } else if (error.name === 'NotFoundError') {
-      tell('Nenhuma câmera disponível foi encontrada.');
-    } else {
-      tell('Não foi possível abrir a câmera: ' + (error.message || error.name));
-    }
-  }
+// Tentar usar o menor zoom disponível na câmera.
+try{
+const caps=track.getCapabilities?.();
+if(caps?.zoom&&typeof caps.zoom.min==='number'){
+await track.applyConstraints({
+advanced:[{zoom:caps.zoom.min}]
+});
+}
+}catch(err){
+console.info('Zoom mínimo indisponível neste aparelho.',err);
 }
 
-function coverCrop(sourceWidth, sourceHeight, targetWidth, targetHeight) {
-  const targetRatio = targetWidth / targetHeight;
-  const sourceRatio = sourceWidth / sourceHeight;
+if(id!==cameraRequest)return;
 
-  let sw = sourceWidth;
-  let sh = sourceHeight;
+video.srcObject=stream;
+video.muted=true;
+video.playsInline=true;
+showMode('camera');
+await video.play();
 
-  if (sourceRatio > targetRatio) {
-    sw = sourceHeight * targetRatio;
-  } else {
-    sh = sourceWidth / targetRatio;
-  }
-
-  return {
-    sx: (sourceWidth - sw) / 2,
-    sy: (sourceHeight - sh) / 2,
-    sw,
-    sh
-  };
+if(id===cameraRequest){
+tell('Câmera pronta! 💚 Enquadre a família e tire sua foto.');
 }
 
-function drawCover(ctx, source, sourceWidth, sourceHeight, x, y, width, height) {
-  const crop = coverCrop(sourceWidth, sourceHeight, width, height);
-  ctx.drawImage(
-    source,
-    crop.sx, crop.sy, crop.sw, crop.sh,
-    x, y, width, height
-  );
+}catch(err){
+if(id!==cameraRequest)return;
+console.error(err);
+stopCamera();
+showMode('');
+
+if(err.message==='HTTPS_REQUIRED'){
+tell('Abra a página por HTTPS para usar a câmera.');
+}else if(err.name==='NotAllowedError'){
+tell('Autorize a câmera nas configurações do Chrome.');
+}else if(err.name==='NotReadableError'){
+tell('A câmera está ocupada. Feche outros aplicativos que estejam usando a câmera.');
+}else{
+tell('Não foi possível abrir a câmera: '+(err.message||err.name));
+}
+}
 }
 
-function updateGallery() {
-  if (!photo) return;
-
-  uploaded.style.objectFit = 'cover';
-  uploaded.style.objectPosition = 'center';
-  uploaded.style.transformOrigin = 'center';
-  uploaded.style.transform =
-    `translate(${panX / ZONE.w * 100}%, ${panY / ZONE.h * 100}%) scale(${scale})`;
+function coverCrop(sw,sh,tw,th){
+const sr=sw/sh,tr=tw/th;
+let cw=sw,ch=sh;
+if(sr>tr)cw=sh*tr;
+else ch=sw/tr;
+return{
+sx:(sw-cw)/2,
+sy:(sh-ch)/2,
+sw:cw,
+sh:ch
+};
 }
 
-async function render(source, sourceWidth, sourceHeight, isGallery = false) {
-  try {
-    if (!frame.complete || !frame.naturalWidth) {
-      throw new Error('A moldura não foi carregada.');
-    }
-
-    await frame.decode();
-
-    const canvas = document.createElement('canvas');
-    canvas.width = W;
-    canvas.height = H;
-
-    const ctx = canvas.getContext('2d');
-    ctx.fillStyle = '#23392d';
-    ctx.fillRect(0, 0, W, H);
-
-    const z = ZONE;
-    ctx.save();
-    ctx.beginPath();
-    ctx.rect(z.x, z.y, z.w, z.h);
-    ctx.clip();
-
-    if (isGallery) {
-      const crop = coverCrop(sourceWidth, sourceHeight, z.w, z.h);
-      const baseScale = z.w / crop.sw;
-      const drawWidth = sourceWidth * baseScale * scale;
-      const drawHeight = sourceHeight * baseScale * scale;
-
-      ctx.drawImage(
-        source,
-        z.x + (z.w - drawWidth) / 2 + panX,
-        z.y + (z.h - drawHeight) / 2 + panY,
-        drawWidth,
-        drawHeight
-      );
-    } else {
-      drawCover(ctx, source, sourceWidth, sourceHeight,
-                z.x, z.y, z.w, z.h);
-    }
-
-    ctx.restore();
-    ctx.drawImage(frame, 0, 0, W, H);
-
-    const blob = await new Promise(resolve => canvas.toBlob(resolve, 'image/png'));
-    if (!blob) throw new Error('Não foi possível gerar a imagem.');
-
-    const url = URL.createObjectURL(blob);
-
-    if (lastResult) URL.revokeObjectURL(lastResult);
-    lastResult = url;
-
-    preview.src = url;
-    save.href = url;
-    result.style.display = 'block';
-    result.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
-
-    tell('Sua lembrança está pronta! 💛');
-  } catch (error) {
-    console.error('Erro ao montar a foto:', error);
-    tell(error.message || 'Não foi possível montar a foto.');
-  }
+function drawCover(ctx,source,sw,sh,x,y,w,h){
+const c=coverCrop(sw,sh,w,h);
+ctx.drawImage(source,c.sx,c.sy,c.sw,c.sh,x,y,w,h);
 }
 
-$('#open').addEventListener('click', openCamera);
+function updateGallery(){
+if(!photo)return;
+uploaded.style.objectFit='cover';
+uploaded.style.objectPosition='center';
+uploaded.style.transformOrigin='center';
+uploaded.style.transform=`translate(${panX/ZONE.w*100}%,${panY/ZONE.h*100}%) scale(${scale})`;
+}
 
-$('#switch').addEventListener('click', () => {
-  facing = facing === 'user' ? 'environment' : 'user';
-  openCamera();
+async function render(source,sw,sh,isGallery=false){
+try{
+if(!frame.complete||!frame.naturalWidth){
+throw Error('A moldura não foi carregada.');
+}
+
+await frame.decode();
+
+const canvas=document.createElement('canvas');
+canvas.width=W;
+canvas.height=H;
+
+const ctx=canvas.getContext('2d');
+ctx.fillStyle='#23392d';
+ctx.fillRect(0,0,W,H);
+
+const z=ZONE;
+ctx.save();
+ctx.beginPath();
+ctx.rect(z.x,z.y,z.w,z.h);
+ctx.clip();
+
+if(isGallery){
+const crop=coverCrop(sw,sh,z.w,z.h);
+const factor=z.w/crop.sw;
+const dw=sw*factor*scale;
+const dh=sh*factor*scale;
+
+ctx.drawImage(
+source,
+z.x+(z.w-dw)/2+panX,
+z.y+(z.h-dh)/2+panY,
+dw,
+dh
+);
+}else{
+drawCover(ctx,source,sw,sh,z.x,z.y,z.w,z.h);
+}
+
+ctx.restore();
+ctx.drawImage(frame,0,0,W,H);
+
+const blob=await new Promise(resolve=>canvas.toBlob(resolve,'image/png'));
+if(!blob)throw Error('Não foi possível gerar a imagem.');
+
+const url=URL.createObjectURL(blob);
+if(lastResult)URL.revokeObjectURL(lastResult);
+lastResult=url;
+
+preview.src=url;
+save.href=url;
+result.style.display='block';
+result.scrollIntoView({behavior:'smooth',block:'nearest'});
+tell('Sua lembrança está pronta! 💛');
+
+}catch(err){
+console.error(err);
+tell(err.message||'Não foi possível montar a foto.');
+}
+}
+
+$('#open').addEventListener('click',openCamera);
+
+$('#switch').addEventListener('click',()=>{
+facing=facing==='user'?'environment':'user';
+openCamera();
 });
 
-$('#snap').addEventListener('click', async () => {
-  if (mode !== 'camera' || !video.videoWidth || !video.videoHeight) {
-    tell('Abra a câmera primeiro para tirar sua foto.');
-    return;
-  }
-
-  await render(video, video.videoWidth, video.videoHeight, false);
+$('#snap').addEventListener('click',async()=>{
+if(mode!=='camera'||!video.videoWidth){
+tell('Abra a câmera primeiro para tirar sua foto.');
+return;
+}
+await render(video,video.videoWidth,video.videoHeight,false);
 });
 
-$('#gallery').addEventListener('click', () => fileInput.click());
+$('#gallery').addEventListener('click',()=>fileInput.click());
 
-fileInput.addEventListener('change', () => {
-  const selected = fileInput.files?.[0];
-  if (!selected) return;
+fileInput.addEventListener('change',()=>{
+const selected=fileInput.files?.[0];
+if(!selected)return;
 
-  if (!selected.type.startsWith('image/')) {
-    tell('Escolha um arquivo de imagem.');
-    return;
-  }
-
-  const url = URL.createObjectURL(selected);
-  const image = new Image();
-
-  image.onload = () => {
-    if (photo?.url) URL.revokeObjectURL(photo.url);
-
-    photo = { image, url };
-    ++cameraRequest;
-    stopCamera();
-
-    uploaded.src = url;
-    panX = 0;
-    panY = 0;
-    scale = 1;
-    zoom.value = '1';
-
-    showMode('gallery');
-    updateGallery();
-
-    tell('Ajuste a foto e toque em Aplicar moldura. 💚');
-  };
-
-  image.onerror = () => {
-    URL.revokeObjectURL(url);
-    tell('Não foi possível abrir a imagem escolhida.');
-  };
-
-  image.src = url;
-  fileInput.value = '';
-});
-
-zoom.addEventListener('input', () => {
-  scale = Number(zoom.value);
-  updateGallery();
-});
-
-mediaZone.addEventListener('pointerdown', event => {
-  if (mode !== 'gallery') return;
-
-  drag = {
-    x: event.clientX,
-    y: event.clientY,
-    px: panX,
-    py: panY
-  };
-
-  mediaZone.style.touchAction = 'none';
-  mediaZone.setPointerCapture(event.pointerId);
-});
-
-mediaZone.addEventListener('pointermove', event => {
-  if (!drag || mode !== 'gallery') return;
-
-  const rect = mediaZone.getBoundingClientRect();
-
-  panX = drag.px + (event.clientX - drag.x) * ZONE.w / rect.width;
-  panY = drag.py + (event.clientY - drag.y) * ZONE.h / rect.height;
-
-  updateGallery();
-});
-
-function endDrag() {
-  drag = null;
-  mediaZone.style.touchAction = '';
+if(!selected.type.startsWith('image/')){
+tell('Escolha um arquivo de imagem.');
+return;
 }
 
-mediaZone.addEventListener('pointerup', endDrag);
-mediaZone.addEventListener('pointercancel', endDrag);
+const url=URL.createObjectURL(selected);
+const img=new Image();
 
-$('#apply').addEventListener('click', async () => {
-  if (!photo) return;
+img.onload=()=>{
+if(photo?.url)URL.revokeObjectURL(photo.url);
+photo={image:img,url};
+++cameraRequest;
+stopCamera();
 
-  await render(
-    photo.image,
-    photo.image.naturalWidth,
-    photo.image.naturalHeight,
-    true
-  );
+uploaded.src=url;
+panX=panY=0;
+scale=1;
+zoom.value='1';
+
+showMode('gallery');
+updateGallery();
+tell('Ajuste a foto e toque em Aplicar moldura. 💚');
+};
+
+img.onerror=()=>{
+URL.revokeObjectURL(url);
+tell('Não foi possível abrir a imagem escolhida.');
+};
+
+img.src=url;
+fileInput.value='';
 });
 
-window.addEventListener('pagehide', () => {
-  ++cameraRequest;
-  stopCamera();
-  if (lastResult) URL.revokeObjectURL(lastResult);
-  if (photo?.url) URL.revokeObjectURL(photo.url);
+zoom.addEventListener('input',()=>{
+scale=Number(zoom.value);
+updateGallery();
+});
+
+mediaZone.addEventListener('pointerdown',e=>{
+if(mode!=='gallery')return;
+drag={x:e.clientX,y:e.clientY,px:panX,py:panY};
+mediaZone.style.touchAction='none';
+mediaZone.setPointerCapture(e.pointerId);
+});
+
+mediaZone.addEventListener('pointermove',e=>{
+if(!drag||mode!=='gallery')return;
+const r=mediaZone.getBoundingClientRect();
+panX=drag.px+(e.clientX-drag.x)*ZONE.w/r.width;
+panY=drag.py+(e.clientY-drag.y)*ZONE.h/r.height;
+updateGallery();
+});
+
+function endDrag(){
+drag=null;
+mediaZone.style.touchAction='';
+}
+
+mediaZone.addEventListener('pointerup',endDrag);
+mediaZone.addEventListener('pointercancel',endDrag);
+
+$('#apply').addEventListener('click',async()=>{
+if(photo){
+await render(
+photo.image,
+photo.image.naturalWidth,
+photo.image.naturalHeight,
+true
+);
+}
+});
+
+window.addEventListener('pagehide',()=>{
+++cameraRequest;
+stopCamera();
+if(lastResult)URL.revokeObjectURL(lastResult);
+if(photo?.url)URL.revokeObjectURL(photo.url);
 });
 </script>
 </body>
